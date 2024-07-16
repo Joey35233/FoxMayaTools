@@ -174,6 +174,8 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 
 					// Animate
 					MFnDagNode node = MFnDagNode(trackDataLocator, &status);
+					MPlug rotationInterpolation = node.findPlug("rotationInterpolation", &status);
+					status = rotationInterpolation.setString("quaternionSlerp");
 
 					ulong time = 0;
 					switch (trackData->Type)
