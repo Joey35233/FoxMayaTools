@@ -54,7 +54,7 @@ namespace fox::anim
 #else
 		float Z = 1.0 - X - Y;
 		
-		float len = sqrtf(X*X + Y+Y + Z*Z);
+		float len = sqrtf(X*X + Y*Y + Z*Z);
 
 		X /= len;
 		Y /= len;
