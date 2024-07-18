@@ -48,10 +48,6 @@ namespace fox::anim
 		
 		float X = (float)ReadUnalignedBits(buffer, inoutBitstreamPos, bitSize) / denominator;
 		float Y = (float)ReadUnalignedBits(buffer, inoutBitstreamPos, bitSize) / denominator;
-
-#ifdef PROPER_QUATCONV
-		float Z = sqrtf(1.0 - X*X - Y*Y);
-#else
 		float Z = 1.0 - X - Y;
 		
 		float len = sqrtf(X*X + Y*Y + Z*Z);
@@ -59,7 +55,6 @@ namespace fox::anim
 		X /= len;
 		Y /= len;
 		Z /= len;
-#endif
 
 		if (ReadUnalignedBits(buffer, inoutBitstreamPos, 1) > 0)
 			X = -X;

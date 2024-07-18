@@ -221,7 +221,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 									Quat valueFloatQuat = fox::anim::ReadUnalignedQuaternion(trackDataBlob, inoutBitstreamPos, gani2TrackData->ComponentBitSize);
 									MEulerRotation value = MQuaternion(valueFloatQuat.x, valueFloatQuat.y, valueFloatQuat.z, valueFloatQuat.w).asEulerRotation();
 
-									keyTime = MTime(time, MTime::k59_94FPS ) + MTime(time, MTime::k59_94FPS );
+									keyTime = MTime(time, MTime::k59_94FPS);
 									status = curveX.addKeyframe(keyTime, value.x, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveY.addKeyframe(keyTime, value.y, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveZ.addKeyframe(keyTime, value.z, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
@@ -258,7 +258,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 
 							ubyte* dataBlob = (ubyte*)trackDataBlob;
 
-							MTime keyTime = MTime(time, MTime::k59_94FPS );
+							MTime keyTime = MTime(time, MTime::k59_94FPS);
 							SmallVector3 startKey = *(SmallVector3*)dataBlob; dataBlob += sizeof(SmallVector3);
 							status = curveX.addKeyframe(keyTime, startKey.x, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 							status = curveY.addKeyframe(keyTime, startKey.y, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
@@ -273,7 +273,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 
 									SmallVector3 value = *(SmallVector3*)dataBlob; dataBlob += sizeof(SmallVector3);
 
-									keyTime = MTime(time, MTime::k59_94FPS );
+									keyTime = MTime(time, MTime::k59_94FPS);
 									status = curveX.addKeyframe(keyTime, value.x, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveY.addKeyframe(keyTime, value.y, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveZ.addKeyframe(keyTime, value.z, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
@@ -308,7 +308,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 							MEulerRotation runningRot = MEulerRotation::identity;
 							ulong inoutBitstreamPos = 0;
 
-							MTime keyTime = MTime(time, MTime::k59_94FPS );
+							MTime keyTime = MTime(time, MTime::k59_94FPS);
 							Quat startKeyFloatQuat = fox::anim::ReadUnalignedQuaternion(trackDataBlob, inoutBitstreamPos, gani2TrackData->ComponentBitSize);
 							runningRot = MQuaternion(startKeyFloatQuat.x, startKeyFloatQuat.y, startKeyFloatQuat.z, startKeyFloatQuat.w);
 
@@ -326,7 +326,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 									Quat deltaFloatQuat = fox::anim::ReadUnalignedQuaternion(trackDataBlob, inoutBitstreamPos, gani2TrackData->ComponentBitSize);
 									runningRot *= MQuaternion(deltaFloatQuat.x, deltaFloatQuat.y, deltaFloatQuat.z, deltaFloatQuat.w);
 
-									keyTime = MTime(time, MTime::k59_94FPS );
+									keyTime = MTime(time, MTime::k59_94FPS);
 									status = curveX.addKeyframe(keyTime, runningRot.x, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveY.addKeyframe(keyTime, runningRot.y, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveZ.addKeyframe(keyTime, runningRot.z, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
@@ -372,7 +372,7 @@ MStatus animImport::reader(const MFileObject& file, const MString& options, File
 
 									SmallVector3 value = *(SmallVector3*)dataBlob; dataBlob += sizeof(SmallVector3);
 
-									keyTime = MTime(time, MTime::k59_94FPS );
+									keyTime = MTime(time, MTime::k59_94FPS);
 									status = curveX.addKeyframe(keyTime, value.x, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveY.addKeyframe(keyTime, value.y, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
 									status = curveZ.addKeyframe(keyTime, value.z, MFnAnimCurve::TangentType::kTangentLinear, MFnAnimCurve::TangentType::kTangentLinear);
