@@ -15,7 +15,7 @@ namespace fox::anim
 			uint exponent = value & 0x7C00;
 			if (exponent > 0)
 				exponent = (exponent + 0x1DC00) >> 3;
-			uint mantissa = (value & 1023) << 5;
+			uint mantissa = (value & 0x3FF) << 5;
 
 			uint outBuffer = 0;
 			outBuffer |= (uint)(mantissa & 0xFF) << 8;
